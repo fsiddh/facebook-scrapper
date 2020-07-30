@@ -10,4 +10,4 @@ if __name__ == '__main__':
     print(driver.title)
 
     driver.close()
-    print("Web Scrapping Application Completed!")
+    # print("Web Scrapping Application Completed!")
