@@ -44,6 +44,16 @@ class Facebook:
                 break
         return BeautifulSoup(r.text, 'lxml')
 
+    def posts_completed(self, scraped_posts, limit):
+
+        # Returns true if the amount of posts scraped from
+        # profile has reached its limit.
+        
+        if len(scraped_posts) == limit:
+            return True
+        else:
+            return False
+
     def extract_comments(self, session, base_url, post_bs, post_url):
 
         # Extracts all coments from post
