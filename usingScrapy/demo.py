@@ -10,12 +10,15 @@ def get_credentials():
 
 
 if __name__ == "__main__":
+
     print("Web Scrapping Application Started ...")
-    chromedriver_path = r"D:\Work\Webscrapper\chromedriver.exe"
+    chromedriver_path = r"chromedriver.exe"
+
     driver_obj = webdriver.Chrome(chromedriver_path)
     driver_obj.maximize_window()
     driver_obj.get("https://www.facebook.com")
     user_detail = get_credentials()
+
     username_element = driver_obj.find_element_by_id("email")
     password_element = driver_obj.find_element_by_id("pass")
     submit_btn_element = driver_obj.find_element_by_id("loginbutton")
