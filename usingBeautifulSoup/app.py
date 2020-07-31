@@ -16,6 +16,12 @@ class Facebook:
             objct = json.loads(json_f.read())
         return objct
 
+    def save_data(self, data):
+
+        # Converts data to JSON.
+        with open('profile_posts_data.json', 'w') as json_file:
+            json.dump(data, json_file, indent=4)
+
     def make_login(self, session, base_url, credentials):
 
         # Returns a Session object logged in with credentials.
@@ -200,3 +206,11 @@ if __name__ == '__main__':
 
     fb.make_login(session, base_url, credentials) # After extracting the input data from files you make the login calling
 
+    posts_data = None
+    for profile_url in profiles_urls:
+        posts_data = fb.crawl_profile(session, base_url, profile_url, 25)
+    logging.info('[!] Scraping finished. Total: {}'.format(len(posts_data)))
+    logging.info('[!] Saving.')
+    fb.save_data(posts_data)
+
+    print(posts_data)
