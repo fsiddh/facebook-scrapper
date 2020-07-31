@@ -212,5 +212,3 @@ if __name__ == '__main__':
     logging.info('[!] Scraping finished. Total: {}'.format(len(posts_data)))
     logging.info('[!] Saving.')
     fb.save_data(posts_data)
-
-    print(posts_data)
