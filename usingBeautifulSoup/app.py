@@ -31,9 +31,21 @@ class Facebook:
             if logged_request.ok:
                 logging.info('[*] Logged in.')
                 break
+
+    def get_bs(self, session, url):
+        # Makes a GET requests using the given Session object
+        # and returns a BeautifulSoup object.
     
-    def crawl_profile(self, session, base_url, profile_url, post_limit)
-    :
+        r = None
+        while True:
+            r = session.get(url) # Session object is used for get request
+            time.sleep(3)
+            if r.ok: # r.ok returns True if status_code is less than 200(idicates data is fine), otherwise False
+                break
+        return BeautifulSoup(r.text, 'lxml')
+
+    def crawl_profile(self, session, base_url, profile_url, post_limit):
+
         # Goes to profile URL, crawls it and extracts posts URLs.
         profile_bs = get_bs(session, profile_url)
         n_scraped_posts = 0
