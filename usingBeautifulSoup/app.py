@@ -31,6 +31,45 @@ class Facebook:
             if logged_request.ok:
                 logging.info('[*] Logged in.')
                 break
+    
+    def crawl_profile(self, session, base_url, profile_url, post_limit)
+    :
+        # Goes to profile URL, crawls it and extracts posts URLs.
+        profile_bs = get_bs(session, profile_url)
+        n_scraped_posts = 0
+        scraped_posts = list()
+        posts_id = None
+
+        while n_scraped_posts < post_limit:
+            try:
+                posts_id = 'recent'
+                posts = profile_bs.find('div', id=posts_id).div.div.contents
+            except Exception:
+                posts_id = 'structured_composer_async_container'
+                posts = profile_bs.find('div', id=posts_id).div.div.contents
+
+            posts_urls = [a['href'] for a in profile_bs.find_all('a', text='Full Story')] 
+
+            for post_url in posts_urls:
+                # print(post_url)
+                try:
+                    post_data = scrape_post(session, base_url, post_url)
+                    scraped_posts.append(post_data)
+                except Exception as e:
+                    logging.info('Error: {}'.format(e))
+                n_scraped_posts += 1
+                if posts_completed(scraped_posts, post_limit):
+                    break
+            
+            show_more_posts_url = None
+            if not posts_completed(scraped_posts, post_limit):
+                show_more_posts_url = profile_bs.find('div', id=posts_id).next_sibling.a['href']
+                profile_bs = get_bs(session, base_url+show_more_posts_url)
+                time.sleep(3)
+            else:
+                break
+        return scraped_posts
+
 
 
 
@@ -46,4 +85,3 @@ if __name__ == '__main__':
 
     fb.make_login(session, base_url, credentials) # After extracting the input data from files you make the login calling
 
-    
