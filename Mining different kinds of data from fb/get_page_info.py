@@ -12,7 +12,7 @@ if __name__ == '__main__':
 	parser = get_parser()
 	args = parser.parse_args()
 
-	token = 'EAANcgmchBvsBAByxcHHnZChe0jXeTZCcxZArqaIWAsbgCZBACCK10SM9bMWMIX0NYUnkqTDGjFrZAQpgK3XeJejPNtBnv60IpEDWmTXHfZA2DrIbhLa4xbTCPZBsiUU9KI0A8ZCERfCdxIEWbNzFL788nQ76NId9rLyGIZAjyXgZBNaVUsQXPngbcT2sTsyGXwyDBITAYmioWrvwZDZD'
+	token = 'EAANcgmchBvsBAEa65LtJIGWK9ouL6V8IsGQHcOkTB3QizSTD0KtCI6jBZCZBvvYLnd4UrNOnwBUop1rqWQ0UEp6hNd3myZC6GljtXCgBQobZBZBrSXLIiI4ZATUPvLFn138JCHDLwD7hpZAmBRpGR01eZBKRPCzZBIkkayOhUODEPagAKZAFHeUA9YH2C7ZC5Ck3Rmktxo7LeEohQZDZD'
 	fields = ['id',
 		'name',
 		'about',
