@@ -51,7 +51,7 @@ import facebook
 import requests
 
 def get_parser():
-	parser = ArgumentParser()
+	parser = ArgumentParser() # To take page name from command line
 	parser.add_argument('--page')
 	parser.add_argument('--n', default=100, type=int)
 	return parser
@@ -67,8 +67,8 @@ if __name__ == '__main__':
 	'message',
 	'created_time',
 	'shares',
-	'likes.summary(true)',
-	'comments.summary(true)',
+	'likes.summary(true)', # to check the no. of times the post's been liked/shared/commented
+	'comments.summary(true)', # true is to get statistics, that's count
 	'reactions'
 	]
 	all_fields = ','.join(all_fields)

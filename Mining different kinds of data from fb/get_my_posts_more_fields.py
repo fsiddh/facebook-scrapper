@@ -6,7 +6,7 @@ import facebook
 import requests
 
 if __name__ == '__main__':
-	token = 'EAANcgmchBvsBAByxcHHnZChe0jXeTZCcxZArqaIWAsbgCZBACCK10SM9bMWMIX0NYUnkqTDGjFrZAQpgK3XeJejPNtBnv60IpEDWmTXHfZA2DrIbhLa4xbTCPZBsiUU9KI0A8ZCERfCdxIEWbNzFL788nQ76NId9rLyGIZAjyXgZBNaVUsQXPngbcT2sTsyGXwyDBITAYmioWrvwZDZD'
+	token = 'EAANcgmchBvsBAHY1sRrrEC8eFcZAfTW6QOGZAzBJHZCT9QFG8Wo7lufbb2ZA4Kn18gxBEwDjiRA4EVITQ4os6bitTdeqvNkORwvGforgh8vNimft1b6SwYrwnYZAq28EU0KW0zh2pJi8h8kUAkMZClaQMsKUoIz3GYNxBnZAc1HEX5PfBdkEd0X5XjBVMsQnETdwnjRKqagZBbazupIjcZBtJcWoACRmHiYzcfxvqHZBdMyQZDZD'
 
 	graph = facebook.GraphAPI(token)
 	all_fields = [
